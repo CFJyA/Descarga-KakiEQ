@@ -112,7 +112,7 @@
       inicio: 'assets/screenshots/Home.png',
       ecualizador: 'assets/screenshots/Equalizer.png',
       miniplayer: 'assets/screenshots/Mini-player_1.png',
-      nowplaying: 'assets/screenshots/NowPlaying.png'
+      nowplaying: 'assets/screenshots/NowPlaying.png?v=2'
     };
 
     heroViewTabs.forEach((tab) => {
