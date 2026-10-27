@@ -1,0 +1,8 @@
+# Visual Studio
+.vs/
+*.user
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store

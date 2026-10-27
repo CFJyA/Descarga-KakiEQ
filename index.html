@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaki EQ — El Reproductor de Música Moderno con Ecualizador DSP para Windows</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Kaki EQ es el reproductor de audio moderno para Windows 11 y 10. Diseñado en WinUI 3 Fluent con ecualizador DSP de 10 bandas, motor BASS DirectX, aislamiento vocal AI para karaoke y mini-reproductor flotante.">
+  <meta name="keywords" content="Kaki EQ, reproductor de musica, ecualizador DSP, windows 11, winui 3, karaoke ai, bass audio, reproductor flac, audio player windows">
+  <meta name="author" content="CFJyA">
+  <meta name="theme-color" content="#121212">
+
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kaki EQ — Reproductor de Música Moderno para Windows">
+  <meta property="og:description" content="Ecualización paramétrica de 10 bandas, motor de audio BASS de alta fidelidad, modo karaoke y diseño WinUI 3 Fluent.">
+  <meta property="og:image" content="assets/brand/Kaki_Oficial_Blanco.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/brand/Kaki_Oficial_Blanco.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Ambient Light Orbs & Mesh Overlay -->
+  <div class="ambient-background">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+    <div class="grid-mesh"></div>
+  </div>
+
+  <!-- Acrylic Floating Navbar -->
+  <header class="navbar">
+    <a href="#inicio" class="nav-brand" aria-label="Kaki EQ Inicio">
+      <div class="nav-logo-box">
+        <img src="assets/brand/Kaki_Oficial_Blanco.png" alt="Kaki EQ Logo" class="nav-logo-img">
+      </div>
+      <div class="nav-brand-text">
+        <div class="brand-title">
+          Kaki EQ
+          <span class="brand-badge">v1.0</span>
+        </div>
+        <span class="brand-subtitle">Music Player</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+        <li><a href="#ecualizador" class="nav-link">Ecualizador DSP</a></li>
+        <li><a href="#funciones" class="nav-link">Funciones</a></li>
+        <li><a href="#galeria" class="nav-link">Capturas</a></li>
+        <li><a href="#especificaciones" class="nav-link">Especificaciones</a></li>
+        <li><a href="#descargar" class="nav-link">Descargar</a></li>
+      </ul>
+    </nav>
+
+    <!-- Nav Actions (Theme Switcher + Download Pill) -->
+    <div class="nav-actions">
+      <!-- Theme Toggle Button -->
+      <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro" title="Cambiar tema">
+        <!-- Moon Icon (Dark Mode active) -->
+        <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <!-- Sun Icon (Light Mode active) -->
+        <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+
+      <!-- Download Button in Navbar -->
+      <a href="downloads/KakiEQ_Setup_v1.0.exe" download="KakiEQ_Setup_v1.0.exe" class="btn-nav-download" title="Descargar instalador oficial para Windows">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/>
+        </svg>
+        <span>Descargar v1.0</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Abrir menú de navegación">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileDrawer" class="mobile-drawer">
+    <ul class="mobile-drawer-links">
+      <li><a href="#inicio" class="mobile-drawer-link">Inicio</a></li>
+      <li><a href="#ecualizador" class="mobile-drawer-link">Ecualizador DSP</a></li>
+      <li><a href="#funciones" class="mobile-drawer-link">Funciones</a></li>
+      <li><a href="#galeria" class="mobile-drawer-link">Galería de Capturas</a></li>
+      <li><a href="#especificaciones" class="mobile-drawer-link">Especificaciones</a></li>
+      <li><a href="#descargar" class="mobile-drawer-link">Descargar Aplicación</a></li>
+    </ul>
+
+    <a href="downloads/KakiEQ_Setup_v1.0.exe" download="KakiEQ_Setup_v1.0.exe" class="btn btn-primary btn-lg" style="width: 100%;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/>
+      </svg>
+      Descargar Kaki EQ (67.5 MB)
+    </a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section id="inicio" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Content -->
+          <div class="hero-content">
+            <div class="pill-badge">
+              <span class="pill-badge-dot"></span>
+              <span>Versión Oficial 1.0.0 Lanzada • WinUI 3 &amp; Motor BASS DSP</span>
+            </div>
+
+            <h1 class="hero-title">
+              Tu música con <span class="gradient-text">fidelidad de estudio</span> y ecualización profesional.
+            </h1>
+
+            <p class="hero-description">
+              El reproductor multimedia de próxima generación para Windows 11 y 10. 
+              Equipado con un ecualizador paramétrico DSP de 10 bandas, motor de audio DirectX BASS, 
+              aislamiento vocal por IA para karaoke y mini-reproductor flotante para máxima productividad.
+            </p>
+
+            <div class="hero-actions">
+              <a href="downloads/KakiEQ_Setup_v1.0.exe" download="KakiEQ_Setup_v1.0.exe" class="btn btn-primary btn-lg">
+                <span class="btn-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/>
+                  </svg>
+                </span>
+                <span>Descargar Gratis para Windows</span>
+              </a>
+
+              <a href="#ecualizador" class="btn btn-secondary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="4" y1="21" x2="4" y2="14"></line>
+                  <line x1="4" y1="10" x2="4" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12" y2="3"></line>
+                  <line x1="20" y1="21" x2="20" y2="16"></line>
+                  <line x1="20" y1="12" x2="20" y2="3"></line>
+                  <circle cx="4" cy="12" r="2"></circle>
+                  <circle cx="12" cy="10" r="2"></circle>
+                  <circle cx="20" cy="14" r="2"></circle>
+                </svg>
+                <span>Probar Simulador</span>
+              </a>
+            </div>
+
+            <!-- Download Meta Info -->
+            <div class="hero-download-meta">
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>67.5 MB (Instalador x64)</span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Windows 11 / 10 (64-bit)</span>
+              </div>
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>100% Gratuito y Libre de Virus</span>
+              </div>
+            </div>
+
+            <!-- Hero Feature Badges -->
+            <div class="hero-chips-bar">
+              <div class="hero-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>WinUI 3 Mica</span>
+              </div>
+              <div class="hero-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+                <span>Hi-Res Lossless FLAC</span>
+              </div>
+              <div class="hero-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                  <line x1="12" y1="19" x2="12" y2="23"></line>
+                  <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+                <span>Aislamiento Vocal AI</span>
+              </div>
+              <div class="hero-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <rect x="7" y="7" width="3" height="9"></rect>
+                  <rect x="14" y="7" width="3" height="5"></rect>
+                </svg>
+                <span>Mini-Player PiP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Mockup Visual (WinUI 3 Window Frame) -->
+          <div class="hero-visual">
+            <div class="winui-window-frame">
+              <!-- WinUI TitleBar -->
+              <div class="winui-titlebar">
+                <div class="titlebar-brand">
+                  <img src="assets/brand/Kaki_Oficial_Blanco.png" alt="Icon">
+                  <span>Kaki EQ — Music Player</span>
+                </div>
+
+                <div class="titlebar-pill-handle"></div>
+
+                <div class="titlebar-controls">
+                  <span class="win-btn min"></span>
+                  <span class="win-btn max"></span>
+                  <span class="win-btn close"></span>
+                </div>
+              </div>
+
+              <!-- Main Application Screenshot View with Interactive Tabs -->
+              <div class="winui-body">
+                <img id="heroMainImg" src="assets/screenshots/Home.png" alt="Kaki EQ Interfaz Principal" class="hero-main-img">
+
+                <!-- Interactive Switcher Tabs on the Window -->
+                <div class="window-view-tabs" title="Haz clic para ver las distintas pantallas de Kaki EQ">
+                  <button class="view-tab-btn active" data-view="inicio">Inicio</button>
+                  <button class="view-tab-btn" data-view="ecualizador">Ecualizador</button>
+                  <button class="view-tab-btn" data-view="nowplaying">Letras &amp; Reproductor</button>
+                  <button class="view-tab-btn" data-view="miniplayer">Mini-Player</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Mini Player Preview Widget -->
+            <div class="floating-miniplayer-preview">
+              <div class="miniplayer-album-art">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              </div>
+              <div class="miniplayer-info">
+                <div class="miniplayer-title">Reproducción en Mini-Player</div>
+                <div class="miniplayer-artist">Modo PiP Compacto</div>
+                <div class="miniplayer-badge">Siempre Visible</div>
+              </div>
+              <div class="miniplayer-action">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-primary)">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE 10-BAND DSP EQUALIZER SIMULATOR
+         ========================================================================== -->
+    <section id="ecualizador">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/>
+            </svg>
+            Motor DSP Paramétrico BASS
+          </div>
+          <h2 class="section-title">Experimenta el Ecualizador Gráfico de 10 Bandas</h2>
+          <p class="section-subtitle">
+            Ajusta cada una de las 10 frecuencias con precisión quirúrgica (-15 dB a +15 dB). 
+            Observa la curva de respuesta de frecuencia en tiempo real y prueba el audio sintetizado directamente en tu navegador.
+          </p>
+        </div>
+
+        <!-- Master Studio Rack -->
+        <div class="equalizer-rack-card">
+          <!-- Rack Top Bar: Title, Badge, EQ Switch, Reset & Audio Demo -->
+          <div class="eq-rack-header">
+            <div class="eq-header-left">
+              <h3 class="eq-title">Ecualizador Gráfico DSP</h3>
+              <span class="dsp-badge">10 BANDAS</span>
+            </div>
+
+            <div class="eq-header-right">
+              <!-- Audio Synthesizer Preview Button -->
+              <button id="btnAudioPreview" class="btn-audio-preview" title="Reproduce un groove musical sintetizado para escuchar el efecto del ecualizador en vivo">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Escuchar Audio Demo con EQ
+              </button>
+
+              <!-- EQ Active Toggle Switch -->
+              <div class="eq-switch-wrap">
+                <span>EQ Activo</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="eqToggleSwitch" checked>
+                  <span class="slider-round"></span>
+                </label>
+              </div>
+
+              <!-- Reset Button -->
+              <button id="btnResetEq" class="btn-reset-eq" title="Restablecer todas las bandas a 0 dB">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <polyline points="23 20 23 14 17 14"></polyline>
+                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                </svg>
+                Reiniciar (0 dB)
+              </button>
+            </div>
+          </div>
+
+          <!-- Presets Chip Bar -->
+          <div class="eq-presets-bar">
+            <span class="presets-label">Perfiles DSP:</span>
+            <ul class="presets-list">
+              <li><button class="preset-chip active" data-preset="plano">Plano (0 dB)</button></li>
+              <li><button class="preset-chip" data-preset="bass">Refuerzo de Bajos</button></li>
+              <li><button class="preset-chip" data-preset="rock">Rock</button></li>
+              <li><button class="preset-chip" data-preset="vocal">Claridad Vocal</button></li>
+              <li><button class="preset-chip" data-preset="treble">Brillo &amp; Aire</button></li>
+              <li><button class="preset-chip" data-preset="club">Club / Dance</button></li>
+              <li><button class="preset-chip" data-preset="pop">Pop</button></li>
+              <li><button class="preset-chip" data-preset="jazz">Jazz</button></li>
+            </ul>
+          </div>
+
+          <!-- Real-Time DSP Response Curve Canvas -->
+          <div class="dsp-curve-container">
+            <div class="curve-markers-row">
+              <span>+15 dB</span>
+              <span class="curve-title-badge">Curva de Respuesta de Frecuencia DSP (Spline Suavizado)</span>
+              <span>+15 dB</span>
+            </div>
+
+            <canvas id="dspCurveCanvas" height="100"></canvas>
+
+            <div class="curve-markers-row" style="margin-top: 6px; margin-bottom: 0;">
+              <span>-15 dB</span>
+              <span>Frecuencias: Sub-graves (32 Hz) &rarr; Medios &rarr; Agudos (16 kHz)</span>
+              <span>-15 dB</span>
+            </div>
+          </div>
+
+          <!-- Studio Sliders: Preamp Column + Separator + 10 Bands -->
+          <div class="sliders-studio-grid">
+            <!-- Preamp Gain Column -->
+            <div class="preamp-col">
+              <span class="preamp-label">PREAMP</span>
+              <div id="preampGainBadge" class="band-db-badge" style="color: var(--accent-primary);">0 dB</div>
+              <div class="vertical-slider-wrapper">
+                <input type="range" id="preampSlider" class="vertical-eq-slider" min="-15" max="15" step="0.5" value="0" orient="vertical">
+              </div>
+              <span class="slider-freq-label" style="color: var(--text-muted);">Ganancia</span>
+            </div>
+
+            <!-- Vertical Divider -->
+            <div class="slider-divider"></div>
+
+            <!-- The 10 Bands Sliders (Generated via JS) -->
+            <div id="bandSlidersRow" class="bands-row">
+              <!-- Dynamically rendered by equalizer-simulator.js -->
+            </div>
+          </div>
+
+          <!-- Quick Tone Enhancement Cards (Matching EqualizerView.xaml cards) -->
+          <div class="quick-tone-cards-grid">
+            <!-- Bass Boost Card -->
+            <div id="btnEnhanceBass" class="tone-card-btn" role="button" tabindex="0">
+              <div class="tone-icon-pill tone-icon-bass">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div>
+                <span class="tone-card-title">Refuerzo de Bajos</span>
+                <span class="tone-card-desc">+6 dB en 32Hz - 125Hz (Golpe &amp; Sub-Punch)</span>
+              </div>
+            </div>
+
+            <!-- Vocal Clarity Card -->
+            <div id="btnEnhanceVocal" class="tone-card-btn" role="button" tabindex="0">
+              <div class="tone-icon-pill tone-icon-vocal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                </svg>
+              </div>
+              <div>
+                <span class="tone-card-title">Claridad Vocal</span>
+                <span class="tone-card-desc">+4 dB en 1kHz - 4kHz (Presencia de Voz)</span>
+              </div>
+            </div>
+
+            <!-- Treble Air Card -->
+            <div id="btnEnhanceTreble" class="tone-card-btn" role="button" tabindex="0">
+              <div class="tone-icon-pill tone-icon-treble">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div>
+                <span class="tone-card-title">Brillo &amp; Aire</span>
+                <span class="tone-card-desc">+5 dB en 8kHz - 16kHz (Definición Cristalina)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CORE FEATURES & HIGHLIGHTS
+         ========================================================================== -->
+    <section id="funciones">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Capacidades Excepcionales
+          </div>
+          <h2 class="section-title">Diseñado para los Amantes de la Buena Música</h2>
+          <p class="section-subtitle">
+            Combina la potencia del procesamiento de audio profesional con una interfaz fluida, moderna y respetuosa con los recursos de tu PC.
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+          <!-- Feature 1: Motor BASS DirectX -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-purple">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Motor DirectX BASS</h3>
+            <p class="feature-desc">
+              Decodificación de audio nativa de 32 bits en coma flotante con ultra baja latencia. 
+              Garantiza una reproducción nítida, sin artefactos ni distorsión, incluso al aplicar ganancias elevadas.
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">32-bit Float</li>
+              <li class="feature-mini-tag">Zero Latency</li>
+              <li class="feature-mini-tag">DirectSound / WASAPI</li>
+            </ul>
+          </div>
+
+          <!-- Feature 2: Aislamiento Vocal AI -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-teal">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Modo Karaoke con IA</h3>
+            <p class="feature-desc">
+              Separa la voz de los instrumentos en tiempo real. 
+              Convierte cualquier canción de tu biblioteca en una pista instrumental instantánea para cantar o disfrutar de arreglos puros.
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">Separación de Stems</li>
+              <li class="feature-mini-tag">Filtro Vocal AI</li>
+              <li class="feature-mini-tag">En Vivo</li>
+            </ul>
+          </div>
+
+          <!-- Feature 3: Letras Sincronizadas -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-amber">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Letras Sincronizadas (LRC)</h3>
+            <p class="feature-desc">
+              Visualización dinámica de letras que se desplazan y resaltan verso a verso al compás exacto de la melodía. 
+              Ideal para acompañar tus sesiones de escucha y fiestas de karaoke.
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">Soporte LRC</li>
+              <li class="feature-mini-tag">Scroll Fluido</li>
+              <li class="feature-mini-tag">Tipografía Grande</li>
+            </ul>
+          </div>
+
+          <!-- Feature 4: Mini-Player Picture-in-Picture -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-purple">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Mini-Reproductor Flotante</h3>
+            <p class="feature-desc">
+              Un widget ultracompacto que flota sobre cualquier videojuego o programa de trabajo. 
+              Controla volumen, pistas y visualiza carátulas sin perder foco de tu pantalla principal.
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">Always on Top</li>
+              <li class="feature-mini-tag">3 Tamaños</li>
+              <li class="feature-mini-tag">Ultra Ligero</li>
+            </ul>
+          </div>
+
+          <!-- Feature 5: Integración Windows 11 Fluent -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-teal">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Integración Nativa WinUI 3</h3>
+            <p class="feature-desc">
+              Construido con Windows App SDK y materiales Mica y Acrylic auténticos. 
+              Incluye controles multimedia del sistema (SMTC), integración con pantalla de bloqueo y minimizado a la bandeja (System Tray).
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">Mica Effect</li>
+              <li class="feature-mini-tag">SMTC Media Keys</li>
+              <li class="feature-mini-tag">System Tray</li>
+            </ul>
+          </div>
+
+          <!-- Feature 6: Privacidad & 100% Offline -->
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-red">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Privacidad Total &amp; Sin Cuenta</h3>
+            <p class="feature-desc">
+              Tus canciones y listas nunca salen de tu ordenador. 
+              Sin registros obligatorios, sin publicidad, sin telemetría invasiva y con un arranque relámpago de milisegundos.
+            </p>
+            <ul class="feature-tag-list">
+              <li class="feature-mini-tag">100% Offline</li>
+              <li class="feature-mini-tag">Cero Telemetría</li>
+              <li class="feature-mini-tag">Sin Anuncios</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Spotlight Deep-Dive 1: Karaoke & Now Playing -->
+        <div class="spotlight-container">
+          <div class="spotlight-content">
+            <div class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              </svg>
+              Tecnología de Aislamiento
+            </div>
+            <h3 class="section-title">Transforma Cualquier Canción en Karaoke Instantáneo</h3>
+            <p class="section-subtitle">
+              Gracias al motor de procesamiento integrado, Kaki EQ te permite atenuar o eliminar completamente las frecuencias vocales de la pista sin arruinar la profundidad de los bajos ni la percusión.
+            </p>
+
+            <ul class="spotlight-points-list">
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Activación con un solo botón:</strong> Pulsa el icono de micrófono y canta de inmediato.</span>
+              </li>
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Letras sincronizadas en vivo:</strong> La canción y las líricas avanzan en perfecta sincronía.</span>
+              </li>
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Ecualización simultánea:</strong> Combina el modo karaoke con perfiles de voz o refuerzo de graves.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spotlight-img-wrap">
+            <img src="assets/screenshots/NowPlaying.png" alt="Pantalla Now Playing y Letras Kaki EQ">
+          </div>
+        </div>
+
+        <!-- Spotlight Deep-Dive 2: Mini-Player & Productividad -->
+        <div class="spotlight-container spotlight-reverse">
+          <div class="spotlight-content">
+            <div class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              </svg>
+              Multitarea sin Distracciones
+            </div>
+            <h3 class="section-title">Mini-Reproductor Flotante Picture-in-Picture</h3>
+            <p class="section-subtitle">
+              No dejes que tu reproductor consuma toda la pantalla. El mini-player de Kaki EQ ofrece 3 modos de compactación con carátula en alta resolución, barra de progreso y botones táctiles.
+            </p>
+
+            <ul class="spotlight-points-list">
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Fijación sobre otras ventanas:</strong> Mantén el control de la música mientras navegas, editas o juegas.</span>
+              </li>
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Minimizado a bandeja del sistema:</strong> Oculta la ventana en el tray icon sin detener la reproducción.</span>
+              </li>
+              <li class="spotlight-point-item">
+                <span class="point-icon">&#10003;</span>
+                <span><strong>Controles multimedia nativos:</strong> Cambia de tema con las teclas Fn de tu teclado o auriculares.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spotlight-img-wrap">
+            <img src="assets/screenshots/Mini-player_1.png" alt="Mini-reproductor compacto Kaki EQ">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREENSHOT GALLERY & LIGHTBOX
+         ========================================================================== -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            Galería Oficial
+          </div>
+          <h2 class="section-title">Explora la Interfaz de Kaki EQ en Detalle</h2>
+          <p class="section-subtitle">
+            Cada rincón de la aplicación ha sido diseñado con esmero para ofrecer estética moderna, fluidez visual y máxima legibilidad.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="gallery-filter-bar">
+          <button class="filter-btn active" data-filter="all">Todas las Capturas</button>
+          <button class="filter-btn" data-filter="main">Pantalla Principal</button>
+          <button class="filter-btn" data-filter="dsp">Ecualizador DSP</button>
+          <button class="filter-btn" data-filter="mini">Mini-Player</button>
+          <button class="filter-btn" data-filter="library">Biblioteca &amp; Álbumes</button>
+          <button class="filter-btn" data-filter="system">Metadatos &amp; Sistema</button>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="gallery-grid">
+          <!-- Card 1: Home -->
+          <div class="gallery-card" data-category="main">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Home.png" alt="Pantalla de Inicio Kaki EQ" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Pantalla de Inicio &amp; Hero</h4>
+              <p class="gallery-card-desc">Banner de bienvenida con gradiente violeta y acceso rápido a canciones recientes.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Equalizer -->
+          <div class="gallery-card" data-category="dsp">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Equalizer.png" alt="Ecualizador Gráfico DSP 10 Bandas" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Ecualizador Gráfico DSP</h4>
+              <p class="gallery-card-desc">Rack de 10 bandas con curva de respuesta en tiempo real, preamp y presets.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: NowPlaying -->
+          <div class="gallery-card" data-category="main">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/NowPlaying.png" alt="Reproductor y Letras Sincronizadas" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">En Reproducción &amp; Letras</h4>
+              <p class="gallery-card-desc">Vista inmersiva con líricas sincronizadas, carátula y modo karaoke.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Mini-Player 1 -->
+          <div class="gallery-card" data-category="mini">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Mini-player_1.png" alt="Mini-Reproductor Flotante en Escritorio" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Mini-Player Flotante</h4>
+              <p class="gallery-card-desc">Widget Picture-in-Picture con información completa y volumen deslizable.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Mini-Player 2 (Modo Barra) -->
+          <div class="gallery-card" data-category="mini">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Mini-player_2.png" alt="Mini-Player Modo Compacto Horizontal" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Mini-Player Ultra Compacto</h4>
+              <p class="gallery-card-desc">Diseño minimalista para ocupar el mínimo espacio posible en pantalla.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Albums -->
+          <div class="gallery-card" data-category="library">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Album.png" alt="Catálogo de Álbumes en Cuadrícula" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Catálogo de Álbumes</h4>
+              <p class="gallery-card-desc">Organización visual por carátulas con bordes redondeados y tipografía clara.</p>
+            </div>
+          </div>
+
+          <!-- Card 7: Artist Detail -->
+          <div class="gallery-card" data-category="library">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Artist_Detail.png" alt="Vista Detallada de Artista" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Ficha de Artista</h4>
+              <p class="gallery-card-desc">Discografía completa con canciones más reproducidas y detalles de producción.</p>
+            </div>
+          </div>
+
+          <!-- Card 8: Metadata Editor -->
+          <div class="gallery-card" data-category="system">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/Metadata_1.png" alt="Editor de Etiquetas y Metadatos ID3" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Editor de Metadatos</h4>
+              <p class="gallery-card-desc">Edita título, artista, año, género e incrusta carátulas de alta calidad.</p>
+            </div>
+          </div>
+
+          <!-- Card 9: Windows Controls & System Integration -->
+          <div class="gallery-card" data-category="system">
+            <div class="gallery-img-box">
+              <img src="assets/screenshots/WindowsControls.png" alt="Integración con Controles SMTC de Windows" loading="lazy">
+              <div class="gallery-hover-overlay">
+                <span class="zoom-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  Ver en Grande
+                </span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-card-title">Integración con el Sistema</h4>
+              <p class="gallery-card-desc">Superposición SMTC oficial de Windows 11 para control desde la barra de tareas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visor de capturas de pantalla">
+      <div class="lightbox-dialog">
+        <button id="lightboxCloseBtn" class="lightbox-btn-close" aria-label="Cerrar visor">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Navigation Buttons -->
+        <button id="lightboxPrevBtn" class="lightbox-nav-btn lightbox-prev" aria-label="Captura anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="lightbox-img-wrap">
+          <img id="lightboxImg" src="" alt="Captura ampliada">
+        </div>
+
+        <button id="lightboxNextBtn" class="lightbox-nav-btn lightbox-next" aria-label="Captura siguiente">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div id="lightboxCaption" class="lightbox-caption-bar">
+          <!-- Text dynamically loaded via main.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         TECHNICAL SPECIFICATIONS & FORMATS
+         ========================================================================== -->
+    <section id="especificaciones">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            Compatibilidad &amp; Arquitectura
+          </div>
+          <h2 class="section-title">Especificaciones Técnicas</h2>
+          <p class="section-subtitle">
+            Construido para brindar el máximo rendimiento nativo en Windows sin consumo desmedido de memoria.
+          </p>
+        </div>
+
+        <div class="specs-grid">
+          <!-- Formats Support Box -->
+          <div class="formats-card">
+            <h3 class="section-title" style="font-size: 1.45rem; margin-bottom: 8px;">Formatos de Audio Compatibles</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem;">
+              Kaki EQ reproduce y asocia de forma nativa todos los códecs de audio estándar de la industria:
+            </p>
+
+            <div class="formats-badges-grid">
+              <div class="format-badge-box">
+                <span class="format-name">FLAC</span>
+                <span class="format-desc">24-bit Hi-Res</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">MP3</span>
+                <span class="format-desc">Hasta 320 kbps</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">WAV</span>
+                <span class="format-desc">PCM Sin Pérdida</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">M4A</span>
+                <span class="format-desc">Apple Lossless / AAC</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">AAC</span>
+                <span class="format-desc">Advanced Audio</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">OGG</span>
+                <span class="format-desc">Vorbis Audio</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">OPUS</span>
+                <span class="format-desc">Ultra Baja Latencia</span>
+              </div>
+              <div class="format-badge-box">
+                <span class="format-name">WMA</span>
+                <span class="format-desc">Windows Media</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirements & Architecture Table -->
+          <div class="specs-table-card">
+            <h3 class="section-title" style="font-size: 1.45rem; margin-bottom: 8px;">Requisitos del Sistema</h3>
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td class="specs-prop">Sistema Operativo</td>
+                  <td class="specs-val">Windows 11 o Windows 10 (Compilación 19041 o superior)</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Arquitectura</td>
+                  <td class="specs-val">64-bit (x64)</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Interfaz Gráfica</td>
+                  <td class="specs-val">WinUI 3 &amp; Windows App SDK (Mica &amp; Acrylic)</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Motor de Audio</td>
+                  <td class="specs-val">BASS Audio DirectX 32-bit Floating Point DSP</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Espacio en Disco</td>
+                  <td class="specs-val">~150 MB (Instalador: 67.5 MB)</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Memoria RAM</td>
+                  <td class="specs-val">Mínimo 2 GB (Recomendado 4 GB o más)</td>
+                </tr>
+                <tr>
+                  <td class="specs-prop">Desarrollador</td>
+                  <td class="specs-val">CFJyA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DOWNLOAD MASTER HUB & INSTALLATION GUIDE
+         ========================================================================== -->
+    <section id="descargar" class="download-hub-section">
+      <div class="container">
+        <!-- Master Card -->
+        <div class="download-master-card">
+          <div class="download-brand-header">
+            <div class="download-hero-icon">
+              <img src="assets/brand/Kaki_Oficial_Blanco.png" alt="Kaki EQ Icono Oficial">
+            </div>
+          </div>
+
+          <h2 class="download-heading">Descarga Kaki EQ Gratis</h2>
+          <p class="download-subtext">
+            Lleva tu experiencia musical al siguiente nivel. Descarga la versión oficial 1.0.0 compilada para Windows 11 y 10.
+          </p>
+
+          <div class="download-cta-box">
+            <a href="downloads/KakiEQ_Setup_v1.0.exe" download="KakiEQ_Setup_v1.0.exe" class="btn-download-hero" id="btnMainDownload">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/>
+              </svg>
+              <span>Descargar Instalador (67.5 MB)</span>
+            </a>
+
+            <div class="download-meta-badges">
+              <span class="badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Versión 1.0.0 Oficial
+              </span>
+              <span class="badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                </svg>
+                Instalación Limpia en x64
+              </span>
+              <span class="badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Sin Telemetría • 100% Offline
+              </span>
+            </div>
+          </div>
+
+          <!-- SHA256 Checksum Verification -->
+          <div class="checksum-box">
+            <div class="checksum-info">
+              <span style="font-weight: 700; color: var(--text-muted); text-transform: uppercase;">SHA-256:</span>
+              <span id="sha256Code" class="checksum-code">18E552DD20135CB381F1E0E8C09AC9CF576005A740FE9B0D0F6D637EA47B82F9</span>
+            </div>
+            <button id="btnCopyHash" class="btn-copy-hash" title="Copiar Hash SHA-256 al portapapeles">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copiar Hash
+            </button>
+          </div>
+
+          <!-- 3-Step Installation Guide -->
+          <h3 class="section-title" style="font-size: 1.35rem; margin-bottom: 6px;">Guía de Instalación en 3 Pasos</h3>
+          <div class="install-steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div>
+                <h4 class="step-title">Descarga el Instalador</h4>
+                <p class="step-desc">Obtén el archivo oficial <code>KakiEQ_Setup_v1.0.exe</code> con un solo clic.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div>
+                <h4 class="step-title">Ejecuta el Asistente</h4>
+                <p class="step-desc">Sigue las instrucciones en español o inglés y asocia tus formatos de música favoritos.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div>
+                <h4 class="step-title">¡Disfruta del Sonido!</h4>
+                <p class="step-desc">Abre Kaki EQ desde el escritorio o el menú Inicio y disfruta de tu música con ecualización DSP.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FREQUENTLY ASKED QUESTIONS (FAQ)
+         ========================================================================== -->
+    <section id="faq" style="padding-top: 20px;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Preguntas Frecuentes
+          </div>
+          <h2 class="section-title">¿Tienes Dudas sobre Kaki EQ?</h2>
+          <p class="section-subtitle">Aquí encontrarás respuestas a las dudas más habituales.</p>
+        </div>
+
+        <div class="faq-container">
+          <!-- FAQ 1 -->
+          <div class="faq-item open">
+            <button class="faq-question">
+              <span>¿Kaki EQ es completamente gratuito?</span>
+              <span class="faq-icon">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sí, Kaki EQ es 100% gratuito, sin compras dentro de la aplicación, sin muros de pago y totalmente libre de anuncios publicitarios o rastreadores.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué versiones de Windows son compatibles?</span>
+              <span class="faq-icon">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Kaki EQ está optimizado para Windows 11 (con soporte nativo para efectos Mica y Fluent 2), y también es totalmente compatible con Windows 10 (versión 2004 / compilación 19041 o posterior) en arquitectura de 64 bits.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo funciona el modo Karaoke por Inteligencia Artificial?</span>
+              <span class="faq-icon">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                El modo Karaoke procesa las señales en tiempo real aplicando algoritmos de aislamiento vocal y filtrado de banda central para atenuar o extraer las voces principales mientras mantiene la instrumentación nítida y sincronizada con las letras.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Necesito conexión a internet para reproducir mi música?</span>
+              <span class="faq-icon">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No. Kaki EQ es un reproductor de música local offline. Puedes reproducir toda tu colección almacenada en tu disco duro, memorias USB o carpetas compartidas sin depender de conexión a internet.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo asocio mis archivos .mp3 o .flac para abrirlos directamente con Kaki EQ?</span>
+              <span class="faq-icon">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Durante la instalación con el archivo <code>KakiEQ_Setup_v1.0.exe</code>, marca la casilla "Asociar archivos de audio (.mp3, .flac, .wav, .m4a, .aac, .ogg, .opus, .wma)". También puedes configurarlo en los Ajustes de Windows &rarr; Aplicaciones Predeterminadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Info -->
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <img src="assets/brand/Kaki_Oficial_Blanco.png" alt="Kaki EQ Logo" class="footer-logo-img">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">Kaki EQ</span>
+            <span class="brand-badge">v1.0</span>
+          </div>
+          <p class="footer-desc">
+            El reproductor multimedia definitivo para Windows 11. Creado con pasión por el audio de alta fidelidad, diseño WinUI 3 y privacidad absoluta.
+          </p>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+            <img src="assets/brand/CY_L_Oficial_Transparente.png" alt="CFJyA" style="width: 32px; height: 32px; opacity: 0.85;">
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Desarrollado por <strong>CFJyA</strong></span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="footer-col-title">Secciones</h4>
+          <ul class="footer-links-list">
+            <li><a href="#inicio" class="footer-link">Inicio</a></li>
+            <li><a href="#ecualizador" class="footer-link">Ecualizador Gráfico DSP</a></li>
+            <li><a href="#funciones" class="footer-link">Características Principales</a></li>
+            <li><a href="#galeria" class="footer-link">Galería de Capturas</a></li>
+            <li><a href="#especificaciones" class="footer-link">Especificaciones Técnicas</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Downloads & Legal -->
+        <div>
+          <h4 class="footer-col-title">Descarga &amp; Soporte</h4>
+          <ul class="footer-links-list">
+            <li><a href="downloads/KakiEQ_Setup_v1.0.exe" download="KakiEQ_Setup_v1.0.exe" class="footer-link">Descargar KakiEQ_Setup_v1.0.exe</a></li>
+            <li><a href="#faq" class="footer-link">Preguntas Frecuentes</a></li>
+            <li><a href="#especificaciones" class="footer-link">Requisitos de Windows</a></li>
+            <li><span class="footer-link" style="color: var(--text-muted); cursor: default;">Licencia de Uso Libre</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Kaki EQ. Desarrollado por CFJyA. Todos los derechos reservados.
+        </div>
+        <a href="#inicio" id="btnBackToTop" class="footer-back-top">
+          <span>Volver arriba</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/equalizer-simulator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
