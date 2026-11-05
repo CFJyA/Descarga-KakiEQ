@@ -30,7 +30,7 @@ Sitio web responsivo y moderno diseñado con la identidad visual y estilo de **K
   - Enlace directo al ejecutable oficial: `downloads/KakiEQ_Setup_v1.0.exe` (68.3 MB).
   - Verificación de integridad con código hash **SHA-256** y botón para copiar con un solo clic:
     ```
-    0477F518C0B2E2D44F2972B6F3E8C51A1D5DDF2CDFFF97EB0B5298FEA2C5E4C7
+    2CAC08BDFA52D98D4740308FBD05E5BFAB95ECED20425A32F2B5C062C1AE8F3F
     ```
   - Guía visual en 3 sencillos pasos para instalar en Windows.
   - Sección de Preguntas Frecuentes (FAQ) desplegable con animación acordeón.
