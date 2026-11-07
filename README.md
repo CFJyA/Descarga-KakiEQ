@@ -27,10 +27,10 @@ Sitio web responsivo y moderno diseñado con la identidad visual y estilo de **K
   - Visor modal con navegación mediante botones y teclado (flechas izquierda/derecha y tecla Escape).
 
 - **Hub de Descarga Directa del Instalador:**
-  - Enlace directo al ejecutable oficial: `downloads/KakiEQ_Setup_v1.0.exe` (68.3 MB).
+  - Enlace directo al ejecutable oficial: `downloads/KakiEQ_Setup_v1.0.exe` (68.5 MB).
   - Verificación de integridad con código hash **SHA-256** y botón para copiar con un solo clic:
     ```
-    2CAC08BDFA52D98D4740308FBD05E5BFAB95ECED20425A32F2B5C062C1AE8F3F
+    D85137F3849741E1CC94222155AE8A0B2163A72A02C433B01A076B4C08896C5D
     ```
   - Guía visual en 3 sencillos pasos para instalar en Windows.
   - Sección de Preguntas Frecuentes (FAQ) desplegable con animación acordeón.
